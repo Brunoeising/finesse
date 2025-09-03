@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Finesse Notifier Next.js",
+  "version": "2.0.0",
+  "description": "Sistema moderno de monitoramento Finesse com Next.js e TypeScript",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "notifications",
+    "alarms",
+    "background"
+  ],
+  "host_permissions": [
+    "https://sncfinesse1.totvs.com.br/*",
+    "https://sncfinesse2.totvs.com.br/*",
+    "https://chat.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Finesse Notifier",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://sncfinesse1.totvs.com.br/*",
+        "https://sncfinesse2.totvs.com.br/*"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "*.html", "*.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
